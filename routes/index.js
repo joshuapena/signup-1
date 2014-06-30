@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-var mongoose = require('mongoose');
-var db;
-=======
 var mongoose= require('mongoose');
 var db = mongoose.createConnection('localhost', 'signup');
 var FormSchema = require('../public/models/Form.js').FormSchema;
 var Form = db.model('forms', FormSchema);
->>>>>>> upstream/master
 
 exports.index = function(req, res) {
   res.render('index');
@@ -18,8 +13,6 @@ exports.list = function(req, res) {
   });
 };
 
-<<<<<<< HEAD
-=======
 exports.form = function(req, res) {
   var formId = req.params.id;
   Form.findById(formId, '', function(err, form){
@@ -46,14 +39,5 @@ exports.create = function(req, res) {
     } else {
       res.json(doc);
     }
+  })
 };
-
-
-
-
-
-
-
-
-
->>>>>>> upstream/master

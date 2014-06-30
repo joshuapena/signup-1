@@ -1,14 +1,10 @@
-<<<<<<< HEAD
-angular.module('appControllers', []).
-  //  
-  controller('HomeController', function($scope) {
-=======
 angular.module('appControllers', ['appServices']).
+  controller('HomeController', function($scope, Form) {
+  }).
   controller('FormListController', function($scope, Form) {
     $scope.forms = Form.query();
->>>>>>> upstream/master
   }).
-  controller('FormController', function($scope) {
+  controller('FormController', function($scope, Form) {
     $scope.form = {
       eventName: '',
       jobs: [{
@@ -37,14 +33,7 @@ angular.module('appControllers', ['appServices']).
       }
     };
   }).
-<<<<<<< HEAD
-  controller('PreviewController', function($scope) {
-    $scope.addVolunteer = function() {
-      $scope.form.volunteers.push();
-    }
-=======
   controller('FormViewController', function($routeParams, $scope, Form) {
     $scope.form = Form.get({formId: $routeParams.formId});
     $scope.signup = function() {};
->>>>>>> upstream/master
   });
