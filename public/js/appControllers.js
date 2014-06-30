@@ -33,7 +33,7 @@ angular.module('appControllers', ['appServices']).
       }
     };
   }).
-  controller('FormViewController', function($routeParams, $scope, Form) {
+  controller('FormController', function($routeParams, $scope, Form) {
     $scope.form = Form.get({formId: $routeParams.formId});
     $scope.signup = function() {};
   });

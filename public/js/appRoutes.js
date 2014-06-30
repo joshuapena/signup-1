@@ -7,8 +7,16 @@ angular.module('appRoutes', []).
 		})
 		.when('/newform', {
 			templateUrl: 'views/newform.html',
+<<<<<<< HEAD
 			controller: 'FormController'
 		}).
+=======
+			controller: 'NewFormController'
+		})
+                .when('/form/:formId', {
+                        templateUrl: 'views/home.html',
+                        controller: 'FormController'
+                }).
+>>>>>>> upstream/master
                 otherwise({ redirectTo: '/forms' });
-	$locationProvider.html5Mode(true);
 }]);
