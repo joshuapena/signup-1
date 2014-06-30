@@ -5,6 +5,7 @@ var volunteerSchema = new mongoose.Schema({
   email: String,
   eventName: String,
 });
+<<<<<<< HEAD
 
 var jobSchema = new mongoose.Schema({
   name: String,
@@ -14,6 +15,9 @@ var jobSchema = new mongoose.Schema({
 });
 
 exports.Form = new mongoose.Schema({
+=======
+exports.FormSchema = new mongoose.Schema({
+>>>>>>> upstream/master
   eventName: String,
   jobList: [jobSchema],
 });
