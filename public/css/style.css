@@ -1,0 +1,16 @@
+body {
+  padding-top:30px;
+}
+.alignleft {
+  float: left;
+}
+.alignright {
+  float: right;
+}
+.clearfloat {
+  clear: both;
+}
+
+.displayInline {
+  display: inline-block;
+}
