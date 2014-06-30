@@ -13,11 +13,6 @@ angular.module('appRoutes', []).
 			controller: 'FormController'
 		})
 
-		.when('/previewform', {
-			templateUrl: 'views/previewform.html',
-			controller: 'PreviewController'	
-		});
-
 	$locationProvider.html5Mode(true);
 
 }]);
