@@ -3,15 +3,18 @@ angular.module('appRoutes', []).
 	$routeProvider
 
 		// home page
-		.when('/', {
+		.when('/forms', {
 			templateUrl: 'views/home.html',
-			controller: 'HomeController'
+			controller: 'FormListController'
 		})
 
 		.when('/newform', {
 			templateUrl: 'views/newform.html',
-			controller: 'FormController'
-		})
+			controller: 'NewFormController'
+		}).
+
+                otherwise({ redirectTo: '/forms' });
+
 
 	$locationProvider.html5Mode(true);
 

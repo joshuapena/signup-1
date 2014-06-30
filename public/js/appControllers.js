@@ -1,8 +1,9 @@
 angular.module('appControllers', []).
   //  
-  controller('HomeController', function($scope) {
+  controller('FormListController', function($scope) {
+    $scope.forms = Form.query();
   }).
-  controller('FormController', function($scope) {
+  controller('NewFormController', function($scope, Form) {
     $scope.form = {
       eventName: '',
       jobs: [{
@@ -19,6 +20,10 @@ angular.module('appControllers', []).
       });
     };
     $scope.submitForm = function () {};
+  }).
+  controller('FormViewController', function($scope, Form) {
+    $scope.form = Form.get({formId: $routeParams.formId});
+    $scope.signup = function() {};
   });
 
 
