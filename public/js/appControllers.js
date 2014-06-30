@@ -19,8 +19,7 @@ angular.module('appControllers', []).
       });
     };
     $scope.submitForm = function () {};
-  });
-
+  }).
   controller('PreviewController', function($scope) {
     $scope.addVolunteer = function() {
       $scope.form.volunteers.push();

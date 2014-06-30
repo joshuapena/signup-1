@@ -1,25 +1,34 @@
 // modules =================================================
 var express = require('express');
-var app     = express();
+var app = express();
+var routes = require('./routes');
+var http = require('http');
+var path = require('path');
+
+var server = http.createServer(app);
 var mongoose= require('mongoose');
 
-// configuration ===========================================
-	
 // config files, returns an object { url: 'mongodb url' }
 var db = require('./config/db');
-
-var port = process.env.PORT || 8080; // set our port
+var port = process.env.PORT || 3000; // set our port
 mongoose.connect(db.url);
 
 app.configure(function() {
+	app.set('views', path.join(__dirname, 'views'));
+	app.use(express.favicon());
+
 	app.use(express.static(__dirname + '/public')); 
 	app.use(express.logger('dev')); 	
 	app.use(express.bodyParser()); 	
 	app.use(express.methodOverride());		
+	app.use(app.router);
 });
 
 // routes ==================================================
-require('./routes/index')(app); // pass our application into our routes
+app.get('/', routes.index);
+app.get('/forms/:id', routes.form);
+app.post('/newform', routes.create);
+app.post('/apply', routes.apply);
 
 // start app ===============================================
 app.listen(port);	
