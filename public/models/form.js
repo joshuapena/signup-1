@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
-var Job = new mongoose.Schema({
+var JobSchema = new mongoose.Schema({
   name: String,
   description: String,
   numSlots: Number
 });
-var Volunteer = new mongoose.Schema({
+var VolunteerSchema = new mongoose.Schema({
   name: String,
   email: String,
   eventName: String,
@@ -12,6 +12,6 @@ var Volunteer = new mongoose.Schema({
 });
 exports.FormSchema = new mongoose.Schema({
   eventName: String,
-  jobList: [jobSchema],
-  volunteers: [volunteerSchema]
+  jobList: [JobSchema],
+  volunteers: [VolunteerSchema]
 });

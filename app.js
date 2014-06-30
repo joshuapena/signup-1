@@ -19,8 +19,8 @@ app.configure(function() {
 // routes ==================================================
 app.get('/', routes.index);
 app.get('/forms/forms', routes.list);
-app.get('/forms/form:id', routes.form);
-app.post('/newform', routes.create);
+app.get('/form/form:id', routes.form);
+app.post('/polls', routes.create);
 
 // start app ===============================================
 app.listen(port);	

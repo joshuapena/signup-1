@@ -1,5 +1,5 @@
 var mongoose= require('mongoose');
-var db = mongoose.createConnection('localhost', 'signup');
+var db = mongoose.createConnection('mongodb://<davidcrosby>:<vx9ert3b>@ds061258.mongolab.com:61258/signup_dev_db');
 var FormSchema = require('../public/models/Form.js').FormSchema;
 var Form = db.model('forms', FormSchema);
 
@@ -39,6 +39,7 @@ exports.create = function(req, res) {
     } else {
       res.json(doc);
     }
+  });
 };
 
 

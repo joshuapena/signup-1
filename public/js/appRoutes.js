@@ -8,7 +8,10 @@ angular.module('appRoutes', []).
 		.when('/newform', {
 			templateUrl: 'views/newform.html',
 			controller: 'NewFormController'
-		}).
+		})
+                .when('/form/:formId', {
+                        templateUrl: 'views/home.html',
+                        controller: 'FormController'
+                }).
                 otherwise({ redirectTo: '/forms' });
-	$locationProvider.html5Mode(true);
 }]);
