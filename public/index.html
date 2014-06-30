@@ -8,19 +8,21 @@
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
+        <link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
+
 
 	<!-- JS -->
 	<script src="libs/angular/angular.min.js"></script>
-	<script src="libs/angular-route/angular-route.min.js"></script>
+        <script src="libs/angular-route/angular-route.min.js"></script>
+        <script src="libs/angular-resource/angular-resource.js"></script>
 
         <!-- ANGULAR CUSTOM -->
 
+        <!-- Services --> 
+        <script src="js/appServices.js"></script>
+
         <!-- Controllers -->
         <script src="js/appControllers.js"></script>
-
-        <!-- Services --> 
-	<script src="js/appServices.js"></script>
 
         <!-- Main module and route files -->
         <script src="js/appDirectives.js"></script>
@@ -33,7 +35,7 @@
 	<!-- HEADER -->
 	<nav class="navbar navbar-inverse">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="/">Signup App</a>
+			<a class="navbar-brand" href="/forms">Signup App</a>
 		</div>
 		<ul class="nav navbar-nav">
 			<li><a href="/newform">Create a Form</a></li>

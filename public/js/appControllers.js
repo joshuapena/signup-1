@@ -1,6 +1,5 @@
-angular.module('appControllers', []).
-  //  
-  controller('FormListController', function($scope) {
+angular.module('appControllers', ['appServices']).
+  controller('FormListController', function($scope, Form) {
     $scope.forms = Form.query();
   }).
   controller('NewFormController', function($scope, Form) {
@@ -12,16 +11,27 @@ angular.module('appControllers', []).
       }],
       volunteers: []
     };
-
     $scope.addJob = function() {
       $scope.form.jobs.push({
         name:'',
         description:'',
       });
     };
-    $scope.submitForm = function () {};
+    $scope.createForm = function () {
+      var form = $scope.form;
+      if(form.jobs.length > 1){
+        var newForm = new Form(form);
+        newForm.$save(function(p, resp) {
+          if(!p.error) {
+            $location.path('forms');
+          }else{
+            alert('Could not create for');
+          }
+        });
+      }
+    };
   }).
-  controller('FormViewController', function($scope, Form) {
+  controller('FormViewController', function($routeParams, $scope, Form) {
     $scope.form = Form.get({formId: $routeParams.formId});
     $scope.signup = function() {};
   });
