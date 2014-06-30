@@ -1,7 +1,11 @@
 var mongoose= require('mongoose');
-var db = require('./config/db');
-var FormSchema = require('../public/models/Form.js').Form;
+var db = mongoose.createConnection('localhost', 'signup');
+var FormSchema = require('../public/models/Form.js').FormSchema;
 var Form = db.model('forms', FormSchema);
+
+exports.index = function(req, res) {
+  res.render('index');
+};
 
 exports.list = function(req, res) {
   Form.find({}, 'eventName', function(error, forms) {

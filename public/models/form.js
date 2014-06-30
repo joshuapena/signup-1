@@ -10,7 +10,7 @@ var Volunteer = new mongoose.Schema({
   eventName: String,
   job: String
 });
-exports.Form = new mongoose.Schema({
+exports.FormSchema = new mongoose.Schema({
   eventName: String,
   jobList: [jobSchema],
   volunteers: [volunteerSchema]

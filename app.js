@@ -1,13 +1,13 @@
 // modules =================================================
 var express = require('express');
 var app     = express();
+var routes  = require('./routes');
 
 // configuration ===========================================
 	
 // config files, returns an object { url: 'mongodb url' }
 
 var port = process.env.PORT || 8080; // set our port
-mongoose.connect(db.url);
 
 app.configure(function() {
 	app.use(express.static(__dirname + '/public')); 
@@ -17,8 +17,8 @@ app.configure(function() {
 });
 
 // routes ==================================================
-
-app.get('/forms', routes.list);
+app.get('/', routes.index);
+app.get('/forms/forms', routes.list);
 app.get('/forms/form:id', routes.form);
 app.post('/newform', routes.create);
 
