@@ -14,7 +14,7 @@ app.configure(function() {
         app.use(app.router);
 });
 
-app.use(function(err, res, res, next) {
+app.use(function(err, req, res, next) {
   if(!err) return next();
   console.log(err.stack);
   res.json({error: true});
@@ -23,7 +23,7 @@ app.use(function(err, res, res, next) {
 // routes ==================================================
 app.get('/', routes.index);
 app.get('/forms/forms', routes.list);
-app.get('/form/:id', routes.form);
+app.get('/forms/:formId', routes.form);
 app.post('/forms', routes.create);
 
 // start app ===============================================
