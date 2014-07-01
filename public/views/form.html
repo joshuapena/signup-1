@@ -1,0 +1,11 @@
+<div class="text-center">
+  <h2>{{form.eventName}}</h2>
+  <div ng-repeat="job in form.jobs">
+    <h4>{{job.name}}</h4>
+    <p>{{job.description}}</p>
+    <button ng-click="signup()">
+      <span class="glyphicon glyphicon-plus">
+      </span> Volunteer
+    </button>
+  </div>
+</div>
