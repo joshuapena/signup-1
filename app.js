@@ -12,7 +12,6 @@ app.configure(function() {
 	app.use(express.bodyParser()); 	
 	app.use(express.methodOverride());		
         app.use(app.router);
-        app.use(express.favicon());
 });
 
 app.use(function(err, req, res, next) {

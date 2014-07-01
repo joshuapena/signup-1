@@ -15,7 +15,7 @@ exports.list = function(req, res) {
 };
 
 exports.form = function(req, res) {
-  var formId = req.params.id;
+  var formId = req.params.formId;
   Form.findById(formId,'',{ lean: true }, function(err, form) {
     if(form) {
       res.json(form);
