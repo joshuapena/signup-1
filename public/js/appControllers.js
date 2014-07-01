@@ -1,8 +1,10 @@
 angular.module('appControllers', ['appServices']).
-  // Search for Forms
+  // For /forms
   controller('FormListController', function($scope, Form) {
     $scope.forms = Form.query();
   }).
+
+  // For /newform
   controller('NewFormController', function($scope, $location, Form) {
     $scope.form = {
       eventName: '',
@@ -31,19 +33,23 @@ angular.module('appControllers', ['appServices']).
         });
       } else {
         alert("Please add a job.");
-    };
-  }
+      };
+    }
   }).
+
+  // For /form/formId
   controller('FormController', function($routeParams, $scope, Form) {
     $scope.form = Form.get({formId: $routeParams.formId});
 
-    $scope.volunteer = {};
+    $scope.volunteer = {
+      name: '',
+      email: '',
+      eventName: ''
+    };
     $scope.volunteer.eventName = $scope.form.eventName
 
     $scope.signup = function() {
       Form.update();
       $scope.volunteer = {};
     };
-});
-      
-      
+  });

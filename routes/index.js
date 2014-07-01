@@ -14,6 +14,7 @@ exports.list = function(req, res) {
   });
 };
 
+/*
 exports.form = function(req, res) {
   var formId = req.params.formId;
   Form.findById(formId,'',{ lean: true }, function(err, form) {
@@ -24,6 +25,7 @@ exports.form = function(req, res) {
     };
   });
 };
+*/
 
 exports.create = function(req, res) {
   var body = req.body,
@@ -48,11 +50,31 @@ exports.volunteer = function(req, res) {
       volunteer = body.volunteer,
       formId = req.params.formId;
 
-  Form.update(formId,{$addToSet: { "volunteers" : volunteer });
+  Form.update(formId,{$addToSet: { "volunteers" : volunteer }});
 };
 
+exports.formVolunteer = function(req, res) {
+  var formId = req.params.formId;
+  Form.findById(formId, '',{ lean: true }, function(err, form) {
+    if(form) {
+      res.json(form);
+    } else {
+      res.json({error:true});
+    }
+  });
 
-
-
-
-
+  var body = req.body,
+    volunteerObject = {
+      name: body.name,
+      email: body.email,
+      eventName: body.eventName
+    };
+  var volunteer = new Volunteer(volunteerObject);
+  volunteer.save(function(err, doc) {
+    if(err || !doc) {
+      throw 'Error';
+    } else {
+      res.json(doc);
+    }
+  });
+};

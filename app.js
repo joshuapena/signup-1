@@ -23,9 +23,10 @@ app.use(function(err, req, res, next) {
 // routes ==================================================
 app.get('/', routes.index);
 app.get('/forms/forms', routes.list);
-app.get('/forms/:formId', routes.form);
+//app.get('/forms/:formId', routes.form);
 app.post('/forms', routes.create);
-app.post('/forms/:formId', routes.volunteer);
+//app.post('/forms/:formId', routes.volunteer);
+app.all('/forms/:formId', routes.formVolunteer);
 
 // start app ===============================================
 app.listen(port);	
