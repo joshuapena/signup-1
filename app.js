@@ -14,13 +14,14 @@ app.configure(function() {
 	app.use(express.logger('dev')); 	
 	app.use(express.bodyParser()); 	
 	app.use(express.methodOverride());		
+        app.use(app.router);
 });
 
 // routes ==================================================
 app.get('/', routes.index);
 app.get('/forms/forms', routes.list);
 app.get('/form/form:id', routes.form);
-app.post('/polls', routes.create);
+app.post('/forms', routes.create);
 
 // start app ===============================================
 app.listen(port);	

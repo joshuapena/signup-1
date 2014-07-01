@@ -2,7 +2,7 @@ angular.module('appControllers', ['appServices']).
   controller('FormListController', function($scope, Form) {
     $scope.forms = Form.query();
   }).
-  controller('NewFormController', function($scope, Form) {
+  controller('NewFormController', function($scope, $location, Form) {
     $scope.form = {
       eventName: '',
       jobs: [{
@@ -25,16 +25,18 @@ angular.module('appControllers', ['appServices']).
           if(!p.error) {
             $location.path('forms');
           }else{
-            alert('Could not create for');
+            alert('Could not create form');
           }
         });
-      }
+      } else {
+        alert("Please add a job.");
     };
+  }
   }).
   controller('FormController', function($routeParams, $scope, Form) {
     $scope.form = Form.get({formId: $routeParams.formId});
     $scope.signup = function() {};
-  });
+});
 
 
 
