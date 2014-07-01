@@ -7,16 +7,11 @@ angular.module('appRoutes', []).
 		})
 		.when('/newform', {
 			templateUrl: 'views/newform.html',
-<<<<<<< HEAD
-			controller: 'FormController'
-		}).
-=======
 			controller: 'NewFormController'
 		})
                 .when('/form/:formId', {
                         templateUrl: 'views/form.html',
                         controller: 'FormController'
                 }).
->>>>>>> upstream/master
                 otherwise({ redirectTo: '/forms' });
 }]);
