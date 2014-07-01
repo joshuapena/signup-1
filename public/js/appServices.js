@@ -3,4 +3,10 @@ angular.module('appServices', ['ngResource']).
     return $resource('forms/:formId', {}, {
       query: { method:'GET', params:{ formId: 'forms'}, isArray:true}
     });
+  }).
+  factory('Volunteer', function($resource) {
+    return $resource('/volunteer', {}, {
+      
+    });
   });
+

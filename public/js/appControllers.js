@@ -35,6 +35,12 @@ angular.module('appControllers', ['appServices']).
   }).
   controller('FormController', function($routeParams, $scope, Form) {
     $scope.form = Form.get({formId: $routeParams.formId});
-    $scope.signup = function() {};
-    var formId = $scope.form._id;
+
+    $scope.volunteer = {};
+    $scope.volunteer.eventName = $scope.form.eventName
+
+    $scope.signup = function() {
+      $scope.form.volunteers.push($scope.volunteer);
+      $scope.volunteer = {};
+    };
 });
