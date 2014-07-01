@@ -41,7 +41,9 @@ angular.module('appControllers', ['appServices']).
     $scope.volunteer.eventName = $scope.form.eventName
 
     $scope.signup = function() {
-      $scope.form.volunteers.push($scope.volunteer);
+      Form.update();
       $scope.volunteer = {};
     };
 });
+      
+      

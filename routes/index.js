@@ -42,3 +42,17 @@ exports.create = function(req, res) {
     }
   });
 };
+
+exports.volunteer = function(req, res) {
+  var body = req.body,
+      volunteer = body.volunteer,
+      formId = req.params.formId;
+
+  Form.update(formId,{$addToSet: { "volunteers" : volunteer });
+};
+
+
+
+
+
+
