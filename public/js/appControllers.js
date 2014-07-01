@@ -1,4 +1,5 @@
 angular.module('appControllers', ['appServices']).
+  // Search for Forms
   controller('FormListController', function($scope, Form) {
     $scope.forms = Form.query();
   }).
