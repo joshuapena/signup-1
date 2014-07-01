@@ -3,11 +3,8 @@ var express = require('express');
 var app     = express();
 var routes  = require('./routes');
 
-// configuration ===========================================
-	
 // config files, returns an object { url: 'mongodb url' }
-
-var port = process.env.PORT || 8080; // set our port
+var port = process.env.PORT || 3000; // set our port
 
 app.configure(function() {
 	app.use(express.static(__dirname + '/public')); 
@@ -17,7 +14,7 @@ app.configure(function() {
         app.use(app.router);
 });
 
-app.use(function(err, res, res, next) {
+app.use(function(err, req, res, next) {
   if(!err) return next();
   console.log(err.stack);
   res.json({error: true});
@@ -26,7 +23,7 @@ app.use(function(err, res, res, next) {
 // routes ==================================================
 app.get('/', routes.index);
 app.get('/forms/forms', routes.list);
-app.get('/form/:id', routes.form);
+app.get('/forms/:formId', routes.form);
 app.post('/forms', routes.create);
 
 // start app ===============================================
