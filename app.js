@@ -17,10 +17,16 @@ app.configure(function() {
         app.use(app.router);
 });
 
+app.use(function(err, res, res, next) {
+  if(!err) return next();
+  console.log(err.stack);
+  res.json({error: true});
+});
+
 // routes ==================================================
 app.get('/', routes.index);
 app.get('/forms/forms', routes.list);
-app.get('/form/form:id', routes.form);
+app.get('/form/:id', routes.form);
 app.post('/forms', routes.create);
 
 // start app ===============================================

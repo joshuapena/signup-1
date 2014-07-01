@@ -1,8 +1,9 @@
 <div class="jumbotron text-center">
   <h3>Create your volunteer signup form</h3>
   <a href="#/newform">Create a form</a>
-
+  <hr>
+  <h4>Form List</h4>
   <div ng-repeat="form in forms">
-    <p>{{form.eventName}}</p>
+    <a href="#/form/{{form._id}}" >{{form.eventName}}</a>
   </div>
 </div>

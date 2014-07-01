@@ -16,12 +16,12 @@ exports.list = function(req, res) {
 
 exports.form = function(req, res) {
   var formId = req.params.id;
-  Form.findById(formId, '', function(err, form){
+  Form.findById({},'',{ lean: true }, function(err, form) {
     if(form) {
       res.json(form);
     } else {
       res.json({error:true});
-    }
+    };
   });
 };
 
