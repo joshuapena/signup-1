@@ -14,7 +14,7 @@ angular.module('appRoutes', []).
 			controller: 'NewFormController'
 		})
                 .when('/form/:formId', {
-                        templateUrl: 'views/home.html',
+                        templateUrl: 'views/form.html',
                         controller: 'FormController'
                 }).
 >>>>>>> upstream/master

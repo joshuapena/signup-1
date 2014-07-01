@@ -1,5 +1,6 @@
 var mongoose= require('mongoose');
-var db = mongoose.createConnection('mongodb://<davidcrosby>:<vx9ert3b>@ds061258.mongolab.com:61258/signup_dev_db');
+//var db = mongoose.createConnection('mongodb://<pinchDev>:<pinchDev>@ds061258.mongolab.com:61258/signup_dev_db');
+var db = mongoose.createConnection('localhost', 'signup');
 var FormSchema = require('../public/models/Form.js').FormSchema;
 var Form = db.model('forms', FormSchema);
 
@@ -15,12 +16,12 @@ exports.list = function(req, res) {
 
 exports.form = function(req, res) {
   var formId = req.params.id;
-  Form.findById(formId, '', function(err, form){
+  Form.findById({},'',{ lean: true }, function(err, form) {
     if(form) {
       res.json(form);
     } else {
       res.json({error:true});
-    }
+    };
   });
 };
 
