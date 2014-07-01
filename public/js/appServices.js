@@ -4,4 +4,3 @@ angular.module('appServices', ['ngResource']).
       query: { method:'GET', params:{ formId: 'forms'}, isArray:true}
     });
   });
-    
