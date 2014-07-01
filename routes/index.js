@@ -30,7 +30,7 @@ exports.create = function(req, res) {
     jobs = body.jobs.filter(function(t) {return t.name != '';}),
     formObj = {
       eventName: body.eventName,
-      jobs: jobs,
+      jobList: jobs,
       volunteers: [],
     };
   var form = new Form(formObj);
