@@ -15,6 +15,7 @@ app.configure(function() {
 	app.use(express.bodyParser()); 	
 	app.use(express.methodOverride());		
         app.use(app.router);
+        app.use(express.favicon());
 });
 
 app.use(function(err, res, res, next) {
@@ -26,7 +27,7 @@ app.use(function(err, res, res, next) {
 // routes ==================================================
 app.get('/', routes.index);
 app.get('/forms/forms', routes.list);
-app.get('/form/:id', routes.form);
+app.get('/forms/:id', routes.form);
 app.post('/forms', routes.create);
 
 // start app ===============================================
