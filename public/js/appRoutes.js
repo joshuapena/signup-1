@@ -3,7 +3,7 @@ angular.module('appRoutes', []).
 	$routeProvider
 		.when('/forms', {
 			templateUrl: 'views/home.html',
-			controller: 'HomeController'
+			controller: 'FormListController'
 		})
 		.when('/newform', {
 			templateUrl: 'views/newform.html',

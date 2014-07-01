@@ -1,6 +1,4 @@
 angular.module('appControllers', ['appServices']).
-  controller('HomeController', function($scope, Form) {
-  }).
   controller('FormListController', function($scope, Form) {
     $scope.forms = Form.query();
   }).
