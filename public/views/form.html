@@ -16,5 +16,9 @@
 </div>
 <h4>Volunteers</h4>
 <div ng-repeat="volunteer in form.volunteers">
-  <p>{{volunteer.name}} -- {{volunteer.job}} -- {{volunteer.email}}</p>
+  <p>
+    <strong>{{volunteer.job}}</strong>
+    -- {{volunteer.name}} -- 
+    <a href="mailto:{{volunteer.email}}">{{volunteer.email}}
+  </p>
 </div>

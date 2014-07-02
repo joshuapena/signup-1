@@ -1,5 +1,4 @@
 var mongoose= require('mongoose');
-//var db = mongoose.createConnection('mongodb://<pinchDev>:<pinchDev>@ds061258.mongolab.com:61258/signup_dev_db');
 var db = mongoose.createConnection('localhost', 'signup');
 var FormSchema = require('../public/models/Form.js').FormSchema;
 var Form = db.model('forms', FormSchema);
@@ -46,7 +45,6 @@ exports.create = function(req, res) {
 exports.volunteer = function(req, res) {
   var id = req.params.formId,
       volunteer = JSON.parse(req.params.volunteer);
-  console.log("ID in route API func:"+id);
   Form.update({_id:id}, {$push: {"volunteers": volunteer}}, function(err, form){
     res.json(form);
   });
