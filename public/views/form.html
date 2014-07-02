@@ -8,9 +8,11 @@
     </span> Volunteer
   </button>
   <div ng-show="show">
-    <input ng-model="volunteer.name" placeholder="Your Name" required>
-    <input ng-model="volunteer.email" placeholder="Your Email" required>
-    <button ng-click="signup(job.name)">Sign Up!</button>
+    <form ng-submit="signup(job.name)">
+      <input type="text" ng-model="volunteer.name" placeholder="Your Name" required>
+      <input type="email" ng-model="volunteer.email" placeholder="Your Email" required>
+      <input type="submit" value="Sign Up!">
+    </form>
   </div>
   <hr>
 </div>

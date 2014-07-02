@@ -3,7 +3,8 @@
   <a href="#/newform">Create a form</a>
   <hr>
   <h4>Find a Form</h4>
-  <input type="text" ng-model="query" placeholder="Search for a Form"></input>
+  <input type="text" ng-model="query"></input>
+  <br>
   <div ng-repeat="form in forms | filter:query" ng-show="query">
     <a href="#/form/{{form._id}}" >{{form.eventName}}</a>
   </div>
