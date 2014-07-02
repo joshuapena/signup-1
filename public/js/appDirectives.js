@@ -1,2 +1,2 @@
-angular.module('appDirectives', [])
-  });
+angular.module('appDirectives', []);
+  
