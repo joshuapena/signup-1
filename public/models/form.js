@@ -8,7 +8,7 @@ var JobSchema = new mongoose.Schema({
 var VolunteerSchema = new mongoose.Schema({
   name: String,
   email: String,
-  eventName: String,
+  job: String,
 });
 
 exports.FormSchema = new mongoose.Schema({

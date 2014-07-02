@@ -46,10 +46,10 @@ exports.create = function(req, res) {
 exports.volunteer = function(req, res) {
   var id = req.params.formId,
       volunteer = JSON.parse(req.params.volunteer);
-  Form.update(id, {$push: {"volunteers": volunteer}}, function(err, form){
+  console.log("ID in route API func:"+id);
+  Form.update({_id:id}, {$push: {"volunteers": volunteer}}, function(err, form){
     res.json(form);
   });
-
 };
 
 

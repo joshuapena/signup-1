@@ -20,7 +20,7 @@ angular.module('appControllers', ['appServices']).
     };
     $scope.createForm = function () {
       var form = $scope.form;
-      if(form.jobs.length > 1){
+      if(form.jobs[0].name!=''){
         var newForm = new Form(form);
         newForm.$save(function(p, resp) {
           if(!p.error) {
@@ -39,13 +39,9 @@ angular.module('appControllers', ['appServices']).
     $scope.volunteer = {};
 
     $scope.signup = function(jobName) {
-      // Attach job name for display
       $scope.volunteer.job = jobName
-
-      // Post to DB
-      // Params: FormID for accessing database
-      //         volunteer: Obj, transferred in JSON format to express through URL
-      //         see ./appServices.js
+      console.log("ID before addVolunteer:");
+      console.log($routeParams.formId)
       Volunteer.addVolunteer($routeParams.formId, $scope.volunteer).update();
       $scope.form = Form.get({formId: $routeParams.formId});
       $scope.volunteer = {};

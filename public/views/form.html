@@ -1,4 +1,5 @@
 <h2>{{form.eventName}}</h2>
+<hr>
 <div ng-repeat="job in form.jobList">
   <h4>{{job.name}}</h4>
   <p>{{job.description}}</p>
@@ -13,7 +14,7 @@
   </div>
   <hr>
 </div>
-<h3>Volunteers</h3>
+<h4>Volunteers</h4>
 <div ng-repeat="volunteer in form.volunteers">
   <p>{{volunteer.name}} -- {{volunteer.job}} -- {{volunteer.email}}</p>
 </div>
