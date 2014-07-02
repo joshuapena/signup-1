@@ -1,19 +1,26 @@
-<div class="text-center">
-  <h2>{{form.eventName}}</h2>
-  <div ng-repeat="job in form.jobList">
-    <h4>{{job.name}}</h4>
-    <p>{{job.description}}</p>
-    <button ng-click="show=true" ng-hide="show">
-      <span class="glyphicon glyphicon-plus">
-      </span> Volunteer
-    </button>
-    <div ng-show="show">
-      <input ng-model="volunteer.name" placeholder="Your Name" required>
-      <input ng-model="volunteer.email" placeholder="Your Email" required>
-      <button ng-click="signup()">Sign Up!</button>
-    </div>
-    <div ng-repeat="volunteer in form.volunteers">
-      <p>{{volunteer.name}} -- {{volunteer.email}}</p>
-    </div>
+<h2>{{form.eventName}}</h2>
+<hr>
+<div ng-repeat="job in form.jobList">
+  <h4>{{job.name}}</h4>
+  <p>{{job.description}}</p>
+  <button ng-click="show=true" ng-hide="show">
+    <span class="glyphicon glyphicon-plus">
+    </span> Volunteer
+  </button>
+  <div ng-show="show">
+    <form ng-submit="signup(job.name)">
+      <input type="text" ng-model="volunteer.name" placeholder="Your Name" required>
+      <input type="email" ng-model="volunteer.email" placeholder="Your Email" required>
+      <input type="submit" value="Sign Up!">
+    </form>
   </div>
+  <hr>
+</div>
+<h4>Volunteers</h4>
+<div ng-repeat="volunteer in form.volunteers">
+  <p>
+    <strong>{{volunteer.job}}</strong>
+    -- {{volunteer.name}} -- 
+    <a href="mailto:{{volunteer.email}}">{{volunteer.email}}
+  </p>
 </div>

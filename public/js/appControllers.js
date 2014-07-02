@@ -22,7 +22,7 @@ angular.module('appControllers', ['appServices']).
     };
     $scope.createForm = function () {
       var form = $scope.form;
-      if(form.jobs.length > 1){
+      if(form.jobs[0].name!=''){
         var newForm = new Form(form);
         newForm.$save(function(p, resp) {
           if(!p.error) {
@@ -36,20 +36,14 @@ angular.module('appControllers', ['appServices']).
       };
     }
   }).
-
-  // For /form/formId
-  controller('FormController', function($routeParams, $scope, Form) {
+  controller('FormController', function($routeParams, $scope, Form, Volunteer) {
     $scope.form = Form.get({formId: $routeParams.formId});
+    $scope.volunteer = {};
 
-    $scope.volunteer = {
-      name: '',
-      email: '',
-      eventName: ''
-    };
-    $scope.volunteer.eventName = $scope.form.eventName
-
-    $scope.signup = function() {
-      Form.update();
+    $scope.signup = function(jobName) {
+      $scope.volunteer.job = jobName
+      Volunteer.addVolunteer($routeParams.formId, $scope.volunteer).update();
+      $scope.form = Form.get({formId: $routeParams.formId});
       $scope.volunteer = {};
     };
   });
