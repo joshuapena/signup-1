@@ -3,7 +3,8 @@ var mongoose = require('mongoose');
 var JobSchema = new mongoose.Schema({
   name: String,
   description: String,
-  numSlots: Number
+  numSlots: Number,
+  volunteer: String
 });
 var VolunteerSchema = new mongoose.Schema({
   name: String,
