@@ -40,16 +40,8 @@ angular.module('appControllers', ['appServices']).
     $scope.form = Form.get({formId: $routeParams.formId});
     $scope.volunteer = {};
 
-    $scope.signup = function(jobName) {
-      var correctIndex;
-      for (var i = 0; i < $scope.form.jobList.length; i++) {
-        if ($scope.form.jobList[i].name == jobName) {
-          correctIndex = i;
-          break
-        }
-      }
-      $scope.form.jobList[correctIndex].volunteer.job = jobName;
-      $scope.volunteer = $scope.form.jobList[correctIndex].volunteer;
+
+    $scope.signup = function() {
       Volunteer.addVolunteer($routeParams.formId, $scope.volunteer).update();
       $scope.form = Form.get({formId: $routeParams.formId});
       $scope.volunteer = {};

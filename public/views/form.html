@@ -16,6 +16,21 @@
   </div>
   <hr>
 </div>
+<button ng-click="show=true" ng-hide="show">
+  <span class="glyphicon glyphicon-plus">
+  </span> Volunteer
+</button>
+<div ng-show="show">
+  <form ng-submit="signup()">
+    <input type="text" ng-model="volunteer.name" placeholder="Your Name" required>
+    <input type="email" ng-model="volunteer.email" placeholder="Your Email" required>
+    <br />
+    Job: <div ng-repeat="job in form.jobList">
+	    <input type="radio" ng-model="volunteer.job" value="{{job.name}}">{{job.name}}
+    </div>
+    <input type="submit" value="Sign Up!">
+  </form>
+</div>
 <h4>Volunteers</h4>
 <div ng-repeat="volunteer in form.volunteers | orderBy: 'job' ">
   <p>
