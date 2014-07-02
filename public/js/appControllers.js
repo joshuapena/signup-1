@@ -42,10 +42,10 @@ angular.module('appControllers', ['appServices']).
 
     $scope.signup = function(jobName) {
       var correctIndex;
-      for (var i = 0, foundIndex = false; i < $scope.form.jobList.length && !foundIndex; i++) {
+      for (var i = 0; i < $scope.form.jobList.length; i++) {
         if ($scope.form.jobList[i].name == jobName) {
           correctIndex = i;
-          foundIndex = true;
+          break
         }
       }
       $scope.form.jobList[correctIndex].volunteer.job = jobName;

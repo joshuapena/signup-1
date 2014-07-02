@@ -5,7 +5,7 @@
   <h4>Find a Form</h4>
   <input type="text" ng-model="query"></input>
   <br>
-  <div ng-repeat="form in forms | filter:query" ng-show="query">
+  <div ng-repeat="form in forms" ng-show="form.eventName == query">
     <a href="#/form/{{form._id}}" >{{form.eventName}}</a>
   </div>
 </div>
