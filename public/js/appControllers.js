@@ -38,8 +38,7 @@ angular.module('appControllers', ['appServices']).
     $scope.form = Form.get({formId: $routeParams.formId});
     $scope.volunteer = {};
 
-    $scope.signup = function(jobName) {
-      $scope.volunteer.job = jobName
+    $scope.signup = function() {
       Volunteer.addVolunteer($routeParams.formId, $scope.volunteer).update();
       $scope.form = Form.get({formId: $routeParams.formId});
       $scope.volunteer = {};
