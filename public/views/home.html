@@ -2,7 +2,7 @@
   <h3>Create your volunteer signup form</h3>
   <a href="#/newform">Create a form</a>
   <hr>
-  <h4>Form List</h4>
+  <h4>Find a Form</h4>
   <input type="text" ng-model="query" placeholder="Search for a Form"></input>
   <div ng-repeat="form in forms | filter:query" ng-show="query">
     <a href="#/form/{{form._id}}" >{{form.eventName}}</a>

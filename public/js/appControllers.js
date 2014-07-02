@@ -34,14 +34,20 @@ angular.module('appControllers', ['appServices']).
     };
   }
   }).
-  controller('FormController', function($routeParams, $scope, Form) {
+  controller('FormController', function($routeParams, $scope, Form, Volunteer) {
     $scope.form = Form.get({formId: $routeParams.formId});
-
     $scope.volunteer = {};
-    $scope.volunteer.eventName = $scope.form.eventName
 
-    $scope.signup = function() {
-      Form.update();
+    $scope.signup = function(jobName) {
+      // Attach job name for display
+      $scope.volunteer.job = jobName
+
+      // Post to DB
+      // Params: FormID for accessing database
+      //         volunteer: Obj, transferred in JSON format to express through URL
+      //         see ./appServices.js
+      Volunteer.addVolunteer($routeParams.formId, $scope.volunteer).update();
+      $scope.form = Form.get({formId: $routeParams.formId});
       $scope.volunteer = {};
     };
 });

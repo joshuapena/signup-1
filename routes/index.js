@@ -44,11 +44,12 @@ exports.create = function(req, res) {
 };
 
 exports.volunteer = function(req, res) {
-  var body = req.body,
-      volunteer = body.volunteer,
-      formId = req.params.formId;
+  var id = req.params.formId,
+      volunteer = JSON.parse(req.params.volunteer);
+  Form.update(id, {$push: {"volunteers": volunteer}}, function(err, form){
+    res.json(form);
+  });
 
-  Form.update(formId,{$addToSet: { "volunteers" : volunteer });
 };
 
 
